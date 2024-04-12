@@ -1,4 +1,4 @@
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import { View, Text, TextInput, StyleSheet, Image } from "react-native";
 import React, { useState } from "react";
 import { Link, useRouter } from "expo-router";
 import FullScreen from "@/components/containers/FullScreen";
@@ -21,8 +21,13 @@ export default function index() {
   return (
     <FullScreen>
       <Card>
-        <Text style={styles.logo}>PDMagalu</Text>
-
+        <View style={styles.containerLogo}>
+          <Image
+            source={require("../assets/images/logo.png")}
+            style={styles.logo}
+          />
+        </View>
+        <Text style={styles.singUp}>Sing Up</Text>
         <FormInput
           label="Username"
           value={username}
@@ -51,10 +56,19 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textAlign: "center",
   },
-  logo: {
-    fontSize: 32,
+  singUp: {
+    fontSize: 24,
     fontWeight: "bold",
-    color: Colors.primary,
+    color: Colors.secondary,
     textAlign: "center",
+    padding: Spacing.md,
+  },
+  logo: {
+    width: "100%",
+    height: "100%",
+  },
+  containerLogo: {
+    width: "100%",
+    height: 100,
   },
 });
